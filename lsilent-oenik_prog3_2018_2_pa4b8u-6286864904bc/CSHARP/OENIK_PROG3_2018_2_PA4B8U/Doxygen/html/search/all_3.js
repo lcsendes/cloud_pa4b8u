@@ -1,0 +1,21 @@
+var searchData=
+[
+  ['data',['Data',['../namespace_dorm_1_1_data.html',1,'Dorm']]],
+  ['database',['Database',['../class_dorm_1_1_repository_1_1_repository.html#a8774b98e43501336eba911ec7fc1fbe0',1,'Dorm::Repository::Repository']]],
+  ['dbentities',['DBEntities',['../class_dorm_1_1_data_1_1_d_b_entities.html',1,'Dorm.Data.DBEntities'],['../class_dorm_1_1_data_1_1_d_b_entities.html#a0cacee623b9b4ed41ea6842db21ad4d5',1,'Dorm.Data.DBEntities.DBEntities()']]],
+  ['deletedorm',['DeleteDorm',['../interface_dorm_1_1_repository_1_1_i_repository.html#abdbcfd99e97a840811fcb68a9ff5af24',1,'Dorm.Repository.IRepository.DeleteDorm()'],['../class_dorm_1_1_repository_1_1_repository.html#a5b3eef0c9432dbaf968dd60fd4539113',1,'Dorm.Repository.Repository.DeleteDorm()']]],
+  ['deleteroom',['DeleteRoom',['../interface_dorm_1_1_repository_1_1_i_repository.html#a12222cd06f11c7699de962366d8ae34b',1,'Dorm.Repository.IRepository.DeleteRoom()'],['../class_dorm_1_1_repository_1_1_repository.html#afe54f7f6781d4a1c8001dda0916dd340',1,'Dorm.Repository.Repository.DeleteRoom()']]],
+  ['deletestudent',['DeleteStudent',['../interface_dorm_1_1_repository_1_1_i_repository.html#a38e44dadbd3faf7c33363bee293d0742',1,'Dorm.Repository.IRepository.DeleteStudent()'],['../class_dorm_1_1_repository_1_1_repository.html#a995c98f0e51e819829cd9439ca18d6f3',1,'Dorm.Repository.Repository.DeleteStudent()']]],
+  ['deleting',['Deleting',['../interface_dorm_1_1_logic_1_1_i_logic.html#a8c501f5073d71aaf8f371e15d649a4fb',1,'Dorm.Logic.ILogic.Deleting()'],['../class_dorm_1_1_logic_1_1_logic.html#aeab9f5c6fb6533e5c900f16bfd665b81',1,'Dorm.Logic.Logic.Deleting()']]],
+  ['dorm',['Dorm',['../namespace_dorm.html',1,'']]],
+  ['dorm_5fid',['dorm_id',['../class_dorm_1_1_data_1_1_dorms.html#a9b8dd30c71b88d1dc991539c617c6927',1,'Dorm.Data.Dorms.dorm_id()'],['../class_dorm_1_1_data_1_1_rooms.html#a7751c08e2f6ec35a6c91d7b89890a460',1,'Dorm.Data.Rooms.dorm_id()']]],
+  ['dorm_5fname',['dorm_name',['../class_dorm_1_1_data_1_1_dorms.html#ae00705299fbfa22ff17bde55c8a3713b',1,'Dorm::Data::Dorms']]],
+  ['dormbyplace',['DormByPlace',['../interface_dorm_1_1_logic_1_1_i_logic.html#a2a55709ab98044d1a26d69a51c0d7bc2',1,'Dorm.Logic.ILogic.DormByPlace()'],['../class_dorm_1_1_logic_1_1_logic.html#aabae589f4acd439aaca87590f8c82cbb',1,'Dorm.Logic.Logic.DormByPlace()']]],
+  ['dormdata',['DormData',['../class_dorm_1_1_data_1_1_dorm_data.html',1,'Dorm::Data']]],
+  ['dormdata_2ecs',['DormData.cs',['../_dorm_data_8cs.html',1,'']]],
+  ['dorms',['Dorms',['../class_dorm_1_1_data_1_1_dorms.html',1,'Dorm.Data.Dorms'],['../class_dorm_1_1_data_1_1_d_b_entities.html#a34bb5e8c042061667c6c9fbdc516be1a',1,'Dorm.Data.DBEntities.Dorms()'],['../class_dorm_1_1_data_1_1_rooms.html#a665061666fae79959429f2b36b277fb5',1,'Dorm.Data.Rooms.Dorms()'],['../class_dorm_1_1_data_1_1_dorms.html#aa7faea8cc58be810d17364352e72336c',1,'Dorm.Data.Dorms.Dorms()']]],
+  ['dorms_2ecs',['Dorms.cs',['../_dorms_8cs.html',1,'']]],
+  ['logic',['Logic',['../namespace_dorm_1_1_logic.html',1,'Dorm']]],
+  ['repository',['Repository',['../namespace_dorm_1_1_repository.html',1,'Dorm']]],
+  ['test',['Test',['../namespace_dorm_1_1_logic_1_1_test.html',1,'Dorm.Logic.Test'],['../namespace_dorm_1_1_repository_1_1_test.html',1,'Dorm.Repository.Test']]]
+];

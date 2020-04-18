@@ -1,0 +1,213 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="DBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Dorms">
+          <Key>
+            <PropertyRef Name="dorm_id" />
+          </Key>
+          <Property Name="dorm_id" Type="varchar" MaxLength="3" Nullable="false" />
+          <Property Name="dorm_name" Type="varchar" MaxLength="40" />
+          <Property Name="address" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="spots" Type="numeric" Precision="3" Scale="0" />
+          <Property Name="phone_num" Type="varchar" MaxLength="11" />
+        </EntityType>
+        <EntityType Name="Rooms">
+          <Key>
+            <PropertyRef Name="room_id" />
+          </Key>
+          <Property Name="room_id" Type="varchar" MaxLength="6" Nullable="false" />
+          <Property Name="roomnum" Type="numeric" Precision="3" Scale="0" />
+          <Property Name="beds" Type="numeric" Precision="1" Scale="0" />
+          <Property Name="dorm_id" Type="varchar" MaxLength="3" />
+        </EntityType>
+        <EntityType Name="Students">
+          <Key>
+            <PropertyRef Name="neptuncode" />
+          </Key>
+          <Property Name="neptuncode" Type="varchar" MaxLength="6" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="30" />
+          <Property Name="email" Type="varchar" MaxLength="40" />
+          <Property Name="bdate" Type="datetime" />
+          <Property Name="phone_num" Type="varchar" MaxLength="11" />
+          <Property Name="room_id" Type="varchar" MaxLength="6" />
+        </EntityType>
+        <Association Name="DORM_FOREIGN_KEY">
+          <End Role="Dorms" Type="Self.Dorms" Multiplicity="0..1" />
+          <End Role="Rooms" Type="Self.Rooms" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Dorms">
+              <PropertyRef Name="dorm_id" />
+            </Principal>
+            <Dependent Role="Rooms">
+              <PropertyRef Name="dorm_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ROOM_FOREIGN_KEY">
+          <End Role="Rooms" Type="Self.Rooms" Multiplicity="0..1" />
+          <End Role="Students" Type="Self.Students" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Rooms">
+              <PropertyRef Name="room_id" />
+            </Principal>
+            <Dependent Role="Students">
+              <PropertyRef Name="room_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DBModelStoreContainer">
+          <EntitySet Name="Dorms" EntityType="Self.Dorms" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Rooms" EntityType="Self.Rooms" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Students" EntityType="Self.Students" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="DORM_FOREIGN_KEY" Association="Self.DORM_FOREIGN_KEY">
+            <End Role="Dorms" EntitySet="Dorms" />
+            <End Role="Rooms" EntitySet="Rooms" />
+          </AssociationSet>
+          <AssociationSet Name="ROOM_FOREIGN_KEY" Association="Self.ROOM_FOREIGN_KEY">
+            <End Role="Rooms" EntitySet="Rooms" />
+            <End Role="Students" EntitySet="Students" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Dorms">
+          <Key>
+            <PropertyRef Name="dorm_id" />
+          </Key>
+          <Property Name="dorm_id" Type="String" MaxLength="3" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="dorm_name" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="address" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="spots" Type="Decimal" Precision="3" Scale="0" />
+          <Property Name="phone_num" Type="String" MaxLength="11" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Rooms" Relationship="Self.DORM_FOREIGN_KEY" FromRole="Dorms" ToRole="Rooms" />
+        </EntityType>
+        <EntityType Name="Rooms">
+          <Key>
+            <PropertyRef Name="room_id" />
+          </Key>
+          <Property Name="room_id" Type="String" MaxLength="6" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="roomnum" Type="Decimal" Precision="3" Scale="0" />
+          <Property Name="beds" Type="Decimal" Precision="1" Scale="0" />
+          <Property Name="dorm_id" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Dorms" Relationship="Self.DORM_FOREIGN_KEY" FromRole="Rooms" ToRole="Dorms" />
+          <NavigationProperty Name="Students" Relationship="Self.ROOM_FOREIGN_KEY" FromRole="Rooms" ToRole="Students" />
+        </EntityType>
+        <EntityType Name="Students">
+          <Key>
+            <PropertyRef Name="neptuncode" />
+          </Key>
+          <Property Name="neptuncode" Type="String" MaxLength="6" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="name" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="email" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="bdate" Type="DateTime" Precision="3" />
+          <Property Name="phone_num" Type="String" MaxLength="11" FixedLength="false" Unicode="false" />
+          <Property Name="room_id" Type="String" MaxLength="6" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Rooms" Relationship="Self.ROOM_FOREIGN_KEY" FromRole="Students" ToRole="Rooms" />
+        </EntityType>
+        <Association Name="DORM_FOREIGN_KEY">
+          <End Role="Dorms" Type="Self.Dorms" Multiplicity="0..1" />
+          <End Role="Rooms" Type="Self.Rooms" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Dorms">
+              <PropertyRef Name="dorm_id" />
+            </Principal>
+            <Dependent Role="Rooms">
+              <PropertyRef Name="dorm_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ROOM_FOREIGN_KEY">
+          <End Role="Rooms" Type="Self.Rooms" Multiplicity="0..1" />
+          <End Role="Students" Type="Self.Students" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Rooms">
+              <PropertyRef Name="room_id" />
+            </Principal>
+            <Dependent Role="Students">
+              <PropertyRef Name="room_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Dorms" EntityType="Self.Dorms" />
+          <EntitySet Name="Rooms" EntityType="Self.Rooms" />
+          <EntitySet Name="Students" EntityType="Self.Students" />
+          <AssociationSet Name="DORM_FOREIGN_KEY" Association="Self.DORM_FOREIGN_KEY">
+            <End Role="Dorms" EntitySet="Dorms" />
+            <End Role="Rooms" EntitySet="Rooms" />
+          </AssociationSet>
+          <AssociationSet Name="ROOM_FOREIGN_KEY" Association="Self.ROOM_FOREIGN_KEY">
+            <End Role="Rooms" EntitySet="Rooms" />
+            <End Role="Students" EntitySet="Students" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DBModelStoreContainer" CdmEntityContainer="DBEntities">
+          <EntitySetMapping Name="Dorms">
+            <EntityTypeMapping TypeName="DBModel.Dorms">
+              <MappingFragment StoreEntitySet="Dorms">
+                <ScalarProperty Name="dorm_id" ColumnName="dorm_id" />
+                <ScalarProperty Name="dorm_name" ColumnName="dorm_name" />
+                <ScalarProperty Name="address" ColumnName="address" />
+                <ScalarProperty Name="spots" ColumnName="spots" />
+                <ScalarProperty Name="phone_num" ColumnName="phone_num" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Rooms">
+            <EntityTypeMapping TypeName="DBModel.Rooms">
+              <MappingFragment StoreEntitySet="Rooms">
+                <ScalarProperty Name="room_id" ColumnName="room_id" />
+                <ScalarProperty Name="roomnum" ColumnName="roomnum" />
+                <ScalarProperty Name="beds" ColumnName="beds" />
+                <ScalarProperty Name="dorm_id" ColumnName="dorm_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Students">
+            <EntityTypeMapping TypeName="DBModel.Students">
+              <MappingFragment StoreEntitySet="Students">
+                <ScalarProperty Name="neptuncode" ColumnName="neptuncode" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="bdate" ColumnName="bdate" />
+                <ScalarProperty Name="phone_num" ColumnName="phone_num" />
+                <ScalarProperty Name="room_id" ColumnName="room_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
