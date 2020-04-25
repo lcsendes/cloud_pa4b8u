@@ -28,6 +28,8 @@ namespace OENIK_PROG3_2018_2_PA4B8U
             Methods.Menu(l);
 
             Console.ReadKey();
+
+            // added a comment for jenkins test
         }
     }
 }
